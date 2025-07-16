@@ -1,9 +1,8 @@
 package org.example;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Alien {
@@ -12,7 +11,8 @@ public class Alien {
     private int aid;
     private String aname;
     private String tech;
-    private Laptop laptop;
+    @OneToMany
+    private List<Laptop> laptop;
 
     public int getAid() {
         return aid;
@@ -38,11 +38,11 @@ public class Alien {
         this.tech = tech;
     }
 
-    public Laptop getLaptop() {
+    public List<Laptop> getLaptop() {
         return laptop;
     }
 
-    public void setLaptop(Laptop laptop) {
+    public void setLaptop(List<Laptop> laptop) {
         this.laptop = laptop;
     }
 
